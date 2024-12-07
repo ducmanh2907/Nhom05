@@ -12,20 +12,21 @@
     <h1>Checkins</h1>
     <form th:action="@{/checkins}"  th:object="${checkin}" method="post"
           class="needs-validation" novalidate>
+
         <div class="mb-3">
-            <label for="id" class="form-label">ID:</label>
-            <input type="text" th:field="*{id}" class="form-control" id="id"
-                   required>
-        </div>
-        <div class="mb-3">
-            <label for="name" class="form-label">Name:</label>
-            <input type="text" th:field="*{name}" class="form-control" id="name"
+            <label for="productId" class="form-label">id:</label>
+            <input type="text" th:field="*{productId}" class="form-control" id="productId"
                    required>
         </div>
 
         <div class="mb-3">
-            <label for="fullname" class="form-label">customerName:</label>
-            <input type="text" th:field="*{fullname}" class="form-control" id="fullname"
+            <label for="productName" class="form-label">productName:</label>
+            <input type="text" th:field="*{productName}" class="form-control" id="productName"
+                   required>
+        </div>
+        <div class="mb-3">
+            <label for="fullName" class="form-label">fullName:</label>
+            <input type="text" th:field="*{fullName}" class="form-control" id="fullName"
                    required>
         </div>
         <div class="mb-3">

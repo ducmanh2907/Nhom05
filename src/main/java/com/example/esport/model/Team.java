@@ -3,7 +3,7 @@ package com.example.esport.model;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
-
+import com.example.esport.model.Ticker;
 @Setter
 @Getter
 @RequiredArgsConstructor
@@ -11,6 +11,8 @@ import java.util.List;
 @Entity
 @Table(name = "teams")
 public class Team {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

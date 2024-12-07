@@ -1,18 +1,19 @@
 package com.example.esport.model;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Table;
 import lombok.*;
-@Setter
+
+import java.time.LocalDate;
+
 @Getter
-@RequiredArgsConstructor
+@Setter
+@NoArgsConstructor
 @AllArgsConstructor
-@Entity
 @Table(name = "checkins")
 public class Checkin {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
-    private String beginAt;
-    private String fullname;
-    private String email;
+    private Long productId; // ID của sản phẩm
+    private String productName; // Tên sản phẩm
+    private LocalDate beginAt; // Ngày bắt đầu
+    private String fullName; // Tên đầy đủ của khách hàng
+    private String email; // Email khách hàng
 }

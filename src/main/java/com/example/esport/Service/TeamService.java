@@ -52,10 +52,17 @@ public class TeamService {
     public List<Team> getAllTeamsSortedByPoints() {
         List<Team> teams = teamRepository.findAll();
 
-        // Sort teams based on points
-        teams.sort(Comparator.comparingInt(team -> team.getRankings().get(0).getPoints()));
+        // Sắp xếp các đội dựa trên điểm số
+        teams.sort(Comparator.comparingInt(team -> {
+            if (team.getRankings() != null && !team.getRankings().isEmpty()) {
+                return team.getRankings().get(0).getPoints();
+            }
+            // Nếu không có Ranking, mặc định điểm là 0
+            return 0;
+        }));
         return teams;
     }
+
     // Update an existing product
     public Team updateTeam(@NotNull Team team, MultipartFile imagea) {
         Team existingTeam = teamRepository.findById(team.getId())
@@ -94,5 +101,8 @@ public class TeamService {
             throw new IllegalStateException("Product with ID " + id + " does not exist.");
         }
         teamRepository.deleteById(id);
+    }
+    public List<Team> searchMatches(String search) {
+        return teamRepository.findByNameContainingIgnoreCase(search); // Tìm kiếm trận đấu theo tên
     }
 }

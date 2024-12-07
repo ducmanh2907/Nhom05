@@ -28,6 +28,9 @@ public class ProductService {
     public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
+    public List<Product> getProductsBySearch(String search) {
+        return productRepository.findByNameContainingIgnoreCase(search); // Tìm kiếm sản phẩm theo tên
+    }
     // Retrieve a product by its id
     public Optional<Product> getProductById(Long id) {
         return productRepository.findById(id);
@@ -52,6 +55,7 @@ public class ProductService {
             throw new RuntimeException("Could not store the file. Error: " + e.getMessage());
         }
     }
+
 
     // Update an existing product
     public Product updateProduct(@NotNull Product product, MultipartFile image, MultipartFile images ) {

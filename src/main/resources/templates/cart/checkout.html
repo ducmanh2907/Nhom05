@@ -11,31 +11,32 @@
 <section layout:fragment="content" class="container mt-3">
     <h1>Place Your Order</h1>
     <form th:action="@{/order/submit}" method="post">
+
         <div class="mb-3">
-            <label for="customerName" class="form-label">Your Name:</label>
-            <input type="text" id="customerName" name="customerName" class="form-control" required>
+            <label for="fullName" class="form-label">Your Name:</label>
+            <input type="text" id="fullName" name="fullName" class="form-control" required>
         </div>
-        <div class="form-group">
-            <label for="address">Địa chỉ giao hàng:</label>
+        <div class="mb-3">
+            <label for="address">Địa chỉ giao hàng:</label>F
             <input type="text" id="address" name="address" class="form-control" required>
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
             <label for="phone">Số điện thoại:</label>
             <input type="tel" id="phone" name="phone" class="form-control" required>
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" class="form-control" required>
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
             <label for="note">Ghi chú:</label>
             <textarea id="note" name="note" class="form-control"></textarea>
         </div>
 
-        <div class="form-group">
+        <div class="mb-3">
             <label for="paymentMethod">Phương thức thanh toán:</label>
             <select id="paymentMethod" name="paymentMethod" class="form-control" required>
                 <option value="cash">Tiền mặt</option>
