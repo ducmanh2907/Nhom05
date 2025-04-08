@@ -79,13 +79,24 @@
     </style>
 </head>
 <body class="full-height bg-background bg-black">
-<video autoplay muted loop class="background-video">
-    <source src="https://esportsworldcup.com/assets/04_Gold_Exploration_01_4_c9e364c783.mp4" type="video/mp4" >
+<div class="background-image"></div>
 
-</video>
 <style>
-    video{
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    .background-image {
         position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100%;
+        background-image: url('https://viettelmoney.vn/wp-content/uploads/2023/01/GALAXY1.jpg'); /* Đổi link ảnh tại đây */
+        background-size: cover;
+        background-position: center;
         z-index: -1;
     }
 </style>
@@ -93,23 +104,21 @@
     <header class="flex justify-between items-center p-4 bg-gradient-to-b from-black-500 to-black text-blue shadow" style="margin-bottom: 0px">
         <div class="flex items-center">
 
-            <h1 class="ml-2 text-xl font-bold" style="color: white; font-size: 40px; text-shadow: 5px 5px 2px blue, 3px 3px 25px white, 0 0 5px darkblue;">LasVegas Raiders</h1><hr style="color:red;">
+            <h1 class="ml-2 text-xl font-bold" style="color: white; font-size: 40px; text-shadow: 5px 5px 2px blue, 3px 3px 25px white, 0 0 5px darkblue;">LasVegas Raiders Movie</h1><hr style="color:red;">
         </div>
         <div class="jong">
             <li class="nav-item " sec:authorize="hasAnyAuthority('ADMIN')">
-                <a th:href="@{/products/add}" class="nav-link text-white" style="text-shadow: 5px 5px 2px blue, 3px 3px 25px red, 0 0 5px darkblue;">Esports</a>
+                <a th:href="@{/products/add}" class="nav-link text-white" style="text-shadow: 5px 5px 2px blue, 3px 3px 25px red, 0 0 5px darkblue;">Movies</a>
             </li>
             <li class="nav-item " sec:authorize="hasAnyAuthority('ADMIN')">
                 <a th:href="@{/categories/add}" class="nav-link text-white" style="text-shadow: 5px 5px 2px blue, 3px 3px 25px red, 0 0 5px darkblue;">Category</a>
             </li>
             <li class="nav-item " sec:authorize="hasAnyAuthority('ADMIN')">
-                <a th:href="@{/events/add}" class="nav-link text-white" style="text-shadow: 5px 5px 2px blue, 3px 3px 25px red, 0 0 5px darkblue;">Esports Events</a>
+                <a th:href="@{/events/add}" class="nav-link text-white" style="text-shadow: 5px 5px 2px blue, 3px 3px 25px red, 0 0 5px darkblue;">Movies Events</a>
             </li>
+
             <li class="nav-item " sec:authorize="hasAnyAuthority('ADMIN')">
-                <a th:href="@{/teams/add}" class="nav-link text-white" style="text-shadow: 5px 5px 2px blue, 3px 3px 25px red, 0 0 5px darkblue;">EsportsTeams</a>
-            </li>
-            <li class="nav-item " sec:authorize="hasAnyAuthority('ADMIN')">
-                <a th:href="@{/rankings/add}" class="nav-link text-white" style="text-shadow: 5px 5px 2px blue, 3px 3px 25px red, 0 0 5px darkblue;">EsportsRanking</a>
+                <a th:href="@{/rankings/add}" class="nav-link text-white" style="text-shadow: 5px 5px 2px blue, 3px 3px 25px red, 0 0 5px darkblue;">MoviesRanking</a>
             </li>
             <hr style="color: blue; width: 5px">
             <style>
@@ -133,7 +142,7 @@
         <div class="flex items-center">
             <form th:action="@{/products}" method="get" class="d-flex mb-3">
                 <input type="text" name="search" th:value="${search}"
-                       class="form-control me-2" placeholder="Nhập tên trận đấu...">
+                       class="form-control me-2" placeholder="Nhập tên movie...">
                 <button style="background: #2c2f36; color: white "  type="submit" class="btn  ">Tìm kiếm</button>
             </form>
 
@@ -195,6 +204,7 @@
         </div>
     </header>
 
+<<<<<<< HEAD
     <div class="flex flex-1">
         <aside class="bg-gradient-to-r from-black to-black-500 shadow-lg text-blue font-bold" style="width: 200px;">
             <ul style="margin-left: 30px">
@@ -210,85 +220,33 @@
                 <li class="py-2"><a class="text-white gap-5 font-bold" href="/teams/points">QuảnLí Xếphang</a></li>
                 <li class="py-2"><a class="text-white gap-5 font-bold" href="#">QuảnLí </a></li>
                 <li class="py-2"><a class="text-white gap-5 font-bold" href="#"> Levels</a></li>
+=======
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar: 30% -->
+        <aside class="w-3/10 bg-gradient-to-r from-black to-black-500 shadow-lg text-blue font-bold p-4">
+            <ul class="ml-4">
+                <li class="mb-12 py-2"><a href="#" class="text-white font-bold">LasVegas Movies</a></li>
+                <li class="py-2"><a class="text-white font-bold" href="/products">Movie</a></li>
+                <li class="py-2"><a class="text-white font-bold" href="/events">Event</a></li>
+                <li class="py-2"><a class="text-white font-bold" href="#">Tickerbox</a></li>
+                <li class="py-2"><a class="text-white font-bold" href="#">Revenue</a></li>
+                <li class="py-2"><a class="text-white font-bold" href="#">Cinema</a></li>
+                <li class="py-2"><a class="text-white font-bold" href="/checkins">Checkin</a></li>
+                <li class="py-2"><a class="text-white font-bold" href="/teams">Public</a></li>
+                <li class="py-2"><a class="text-white font-bold" href="/teams/points">Top Movie</a></li>
+                <li class="py-2"><a class="text-white font-bold" href="#">Levels</a></li>
+>>>>>>> 8a96cedf02b3c1ee671dd02839a3d276e3e37662
             </ul>
         </aside>
 
-        <div class="container mt-5">
-            <section layout:fragment="content"  class="h-screen overflow-hidden" style="padding-bottom: 60px">
-        <main class=" h-full flex-1 p-4 bg-cover bg-center" style="background-image: url(https://img.tapimg.net/market/images/FtoIj5l2bR_tdBi-aP9tLxPi0cqQ.png); opacity: 0.8;">
-            <div class="grid grid-cols-4 gap-4 mb-4 text-white" style="opacity: 0.8; background-color: rgba(0, 0, 0, 0.5);">
-                <div class="p-4 rounded-lg shadow">
-                    <h2>Total Visits</h2>
-                    <div class="text-green-500">+10%</div>
-                    <div class="h-2 bg-zinc-200 rounded"><div class="h-full bg-green-500" style="width: 70%;"></div></div>
-                </div>
-                <div class="p-4 rounded-lg shadow">
-                    <h2>Total Page Views</h2>
-                    <div class="text-red-500">-7%</div>
-                    <div class="h-2 bg-zinc-200 rounded"><div class="h-full bg-red-500" style="width: 30%;"></div></div>
-                </div>
-                <div class="p-4 rounded-lg shadow">
-                    <h2>Unique Visitor</h2>
-                    <div class="text-purple-500">~12%</div>
-                    <div class="h-2 bg-zinc-200 rounded"><div class="h-full bg-purple-500" style="width: 50%;"></div></div>
-                </div>
-                <div class="p-4 rounded-lg shadow">
-                    <h2>Bounce Rate</h2>
-                    <div class="text-blue-500">33%</div>
-                    <div class="h-2 bg-zinc-200 rounded"><div class="h-full bg-blue-500" style="width: 33%;"></div></div>
-                </div>
-            </div>
-            <div class="bg-zinc-200 rounded-lg shadow p-4 " style="opacity: 0.8; background-color: rgba(0, 0, 0, 0.5);">
-                <div class="flex">
-                    <div class="flex-1">
-                        <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2024/02/top-giai-dau-esports-4.webp" alt="Map" class="w-full h-auto" />
-                    </div>
-                    <div class="flex-1 ml-4">
-
-                        <div class="mb-4 gap-4 mb-4 text-white" >
-                            100k Visitors From USA
-                            <div class="bg-blue-500 h-2 rounded" style="width: 20%;"></div>
-                        </div>
-                        <div class="mb-4 gap-4 mb-4 text-white">
-                            1M Visitors From Europe
-                            <div class="bg-purple-500 h-2 rounded" style="width: 30%;"></div>
-                        </div>
-                        <div class="mb-4 gap-4 mb-4 text-white">
-                            450k Visitors From Australia
-                            <div class="bg-green-500 h-2 rounded" style="width: 40%;"></div>
-                        </div>
-                        <div class="mb-4 gap-4 mb-4 text-white">
-                            1B Visitors From India
-                            <div class="bg-red-500 h-2 rounded" style="width: 50%;"></div>
-                        </div>
-                        <div class="mb-4 gap-4 mb-4 text-white">
-                            The International 10
-                            <div class="bg-purple-500 h-2 rounded" style="width: 70%;"></div>
-                        </div>
-                        <div class="mb-4 gap-4 mb-4 text-white">
-                            The 2024 Fortnine World Cup Finals
-                            <div class="bg-gradient-to-r from-cyan-500 to-blue-500 h-2 rounded" style="width: 80%;"></div>
-                        </div>
-                        <div class="mb-4 gap-4 mb-4 text-white">
-                            Riyadh Masters From Europe oceania
-                            <div class="bg-purple-500bg-gradient-to-r from-sky-500 to-indigo-500 h-2 rounded" style="width: 90%;"></div>
-                        </div>
-                        <div class="mb-4 gap-4 mb-4 text-white">
-                            The 2024 Honor of Kings International Championship
-                            <div class="bg-gradient-to-r from-violet-500 to-fuchsia-500 h-2 rounded" style="width: 100%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-        </main>
-
+        <!-- Content Area: 70% -->
+        <div class="flex-1 max-w-[70%] p-5 overflow-auto">
+            <section layout:fragment="content" class="h-full" style="padding-bottom: 60px">
+                <!-- Nội dung sẽ nằm trong fragment -->
             </section>
+        </div>
     </div>
 
-    </div>
 </div>
 </body>
 

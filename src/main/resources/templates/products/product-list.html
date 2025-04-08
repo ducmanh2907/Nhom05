@@ -37,9 +37,7 @@ td{
                 <img th:src="@{/images/{logo}(logo=${product.logo})}" alt="Product Image" width="50px" height="50px" >
             </td>
             <td th:text="${product.name}"></td>
-            <td>
-                <img th:src="@{/images/{logos}(logos=${product.logos})}" alt="Product Image" width="50px" height="50px" >
-            </td>
+
             <td th:text="${product.price}"></td>
             <td th:text="${product.beginAt}"></td>
 
