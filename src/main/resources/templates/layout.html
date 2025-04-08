@@ -79,13 +79,24 @@
     </style>
 </head>
 <body class="full-height bg-background bg-black">
-<video autoplay muted loop class="background-video">
-    <source src="https://esportsworldcup.com/assets/04_Gold_Exploration_01_4_c9e364c783.mp4" type="video/mp4" >
+<div class="background-image"></div>
 
-</video>
 <style>
-    video{
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    .background-image {
         position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100%;
+        background-image: url('https://viettelmoney.vn/wp-content/uploads/2023/01/GALAXY1.jpg'); /* Đổi link ảnh tại đây */
+        background-size: cover;
+        background-position: center;
         z-index: -1;
     }
 </style>
@@ -93,23 +104,21 @@
     <header class="flex justify-between items-center p-4 bg-gradient-to-b from-black-500 to-black text-blue shadow" style="margin-bottom: 0px">
         <div class="flex items-center">
 
-            <h1 class="ml-2 text-xl font-bold" style="color: white; font-size: 40px; text-shadow: 5px 5px 2px blue, 3px 3px 25px white, 0 0 5px darkblue;">LasVegas Raiders</h1><hr style="color:red;">
+            <h1 class="ml-2 text-xl font-bold" style="color: white; font-size: 40px; text-shadow: 5px 5px 2px blue, 3px 3px 25px white, 0 0 5px darkblue;">LasVegas Raiders Movie</h1><hr style="color:red;">
         </div>
         <div class="jong">
             <li class="nav-item " sec:authorize="hasAnyAuthority('ADMIN')">
-                <a th:href="@{/products/add}" class="nav-link text-white" style="text-shadow: 5px 5px 2px blue, 3px 3px 25px red, 0 0 5px darkblue;">Esports</a>
+                <a th:href="@{/products/add}" class="nav-link text-white" style="text-shadow: 5px 5px 2px blue, 3px 3px 25px red, 0 0 5px darkblue;">Movies</a>
             </li>
             <li class="nav-item " sec:authorize="hasAnyAuthority('ADMIN')">
                 <a th:href="@{/categories/add}" class="nav-link text-white" style="text-shadow: 5px 5px 2px blue, 3px 3px 25px red, 0 0 5px darkblue;">Category</a>
             </li>
             <li class="nav-item " sec:authorize="hasAnyAuthority('ADMIN')">
-                <a th:href="@{/events/add}" class="nav-link text-white" style="text-shadow: 5px 5px 2px blue, 3px 3px 25px red, 0 0 5px darkblue;">Esports Events</a>
+                <a th:href="@{/events/add}" class="nav-link text-white" style="text-shadow: 5px 5px 2px blue, 3px 3px 25px red, 0 0 5px darkblue;">Movies Events</a>
             </li>
+
             <li class="nav-item " sec:authorize="hasAnyAuthority('ADMIN')">
-                <a th:href="@{/teams/add}" class="nav-link text-white" style="text-shadow: 5px 5px 2px blue, 3px 3px 25px red, 0 0 5px darkblue;">EsportsTeams</a>
-            </li>
-            <li class="nav-item " sec:authorize="hasAnyAuthority('ADMIN')">
-                <a th:href="@{/rankings/add}" class="nav-link text-white" style="text-shadow: 5px 5px 2px blue, 3px 3px 25px red, 0 0 5px darkblue;">EsportsRanking</a>
+                <a th:href="@{/rankings/add}" class="nav-link text-white" style="text-shadow: 5px 5px 2px blue, 3px 3px 25px red, 0 0 5px darkblue;">MoviesRanking</a>
             </li>
             <hr style="color: blue; width: 5px">
             <style>
@@ -133,7 +142,7 @@
         <div class="flex items-center">
             <form th:action="@{/products}" method="get" class="d-flex mb-3">
                 <input type="text" name="search" th:value="${search}"
-                       class="form-control me-2" placeholder="Nhập tên trận đấu...">
+                       class="form-control me-2" placeholder="Nhập tên movie...">
                 <button style="background: #2c2f36; color: white "  type="submit" class="btn  ">Tìm kiếm</button>
             </form>
 
@@ -197,18 +206,18 @@
 
     <div class="flex flex-1">
         <aside class="bg-gradient-to-r from-black to-black-500 shadow-lg text-blue font-bold" style="width: 200px;">
-            <ul>
-                <li style="margin-bottom: 50px" class="py-2"><a  href="#" class="text-white gap-5 font-bold">Las Vegas Kings</a></li>
-                <li class="py-2"><a class="text-white gap-5 font-bold" href="/products">QuảnLí Esports</a></li>
-                <li class="py-2"><a class="text-white gap-5 font-bold" href="/events">QuảnLí Sựkien</a></li>
-                <li class="py-2"><a class="text-white gap-5 font-bold" href="/customers">QuảnLí Kháchhang</a></li>
+            <ul style="margin-left: 30px">
+                <li style="margin-bottom: 50px" class="py-2"><a  href="#" class="text-white gap-5 font-bold">LasVegas Movies</a></li>
+                <li class="py-2"><a class="text-white gap-5 font-bold" href="/products">QuảnLí Movie</a></li>
+                <li class="py-2"><a class="text-white gap-5 font-bold" href="/events">QuảnLí Event</a></li>
+                <li class="py-2"><a class="text-white gap-5 font-bold" href="/customers">QuảnLí User</a></li>
                 <li class="py-2"><a class="text-white gap-5 font-bold" href="#">QuảnLí Vé</a></li>
                 <li class="py-2"><a class="text-white gap-5 font-bold" href="#">QuảnLí Doanhthu</a></li>
-                <li class="py-2"><a class="text-white gap-5 font-bold" href="#">QuảnLí Đặtcuoc</a></li>
+                <li class="py-2"><a class="text-white gap-5 font-bold" href="#">QuảnLí Phong</a></li>
                 <li class="py-2"><a class="text-white gap-5 font-bold" href="/checkins">QuảnLí Check in</a></li>
-                <li class="py-2"><a class="text-white gap-5 font-bold" href="#">QuảnLí Teams</a></li>
+                <li class="py-2"><a class="text-white gap-5 font-bold" href="/teams">QuảnLí Nhanvien</a></li>
                 <li class="py-2"><a class="text-white gap-5 font-bold" href="/teams/points">QuảnLí Xếphang</a></li>
-                <li class="py-2"><a class="text-white gap-5 font-bold" href="#">QuảnLí </a></li>
+
                 <li class="py-2"><a class="text-white gap-5 font-bold" href="#"> Levels</a></li>
             </ul>
         </aside>
