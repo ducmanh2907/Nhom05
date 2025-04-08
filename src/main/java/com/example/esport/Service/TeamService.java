@@ -52,6 +52,7 @@ public class TeamService {
     public List<Team> getAllTeamsSortedByPoints() {
         List<Team> teams = teamRepository.findAll();
 
+<<<<<<< HEAD
         // Sắp xếp các đội dựa trên điểm số
         teams.sort(Comparator.comparingInt(team -> {
             if (team.getRankings() != null && !team.getRankings().isEmpty()) {
@@ -63,6 +64,12 @@ public class TeamService {
         return teams;
     }
 
+=======
+        // Sort teams based on points
+        teams.sort(Comparator.comparingInt(team -> team.getRankings().get(0).getPoints()));
+        return teams;
+    }
+>>>>>>> b2be986 (jonggun)
     // Update an existing product
     public Team updateTeam(@NotNull Team team, MultipartFile imagea) {
         Team existingTeam = teamRepository.findById(team.getId())
@@ -102,7 +109,10 @@ public class TeamService {
         }
         teamRepository.deleteById(id);
     }
+<<<<<<< HEAD
     public List<Team> searchMatches(String search) {
         return teamRepository.findByNameContainingIgnoreCase(search); // Tìm kiếm trận đấu theo tên
     }
+=======
+>>>>>>> b2be986 (jonggun)
 }

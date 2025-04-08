@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Update Product</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<section layout:fragment="content" class="container mt-5">
+    <h1>Edit Product</h1>
+    <form th:action="@{/events/update/{id}(id=${event.id})}"
+          th:object="${event}" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="imagess">Image:</label>
+            <input type="file" id="imagess" name="imagess" accept="image/*" required>
+            <img th:src="@{/images/{kame}(logo=${event.kame})}" alt="Product Image" width="200px" height="200px">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" th:field="*{eventName}" class="form-control" id="name"
+                   required>
+            <div class="text-danger" th:if="${#fields.hasErrors('name')}"
+                 th:errors="*{eventName}"></div>
+        </div>
+
+        <div class="mb-3">
+            <label for="core" class="form-label">Price:</label>
+            <input type="text" th:field="*{core}" class="form-control" id="core"
+                   required>
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Price:</label>
+            <input type="text" th:field="*{location}" class="form-control" id="location"
+                   required>
+        </div>
+        <div class="mb-3">
+            <label for="begin" class="form-label">Date:</label>
+            <input type="date" th:field="*{eventDate}" class="form-control" id="begin"
+                   required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea th:field="*{description}" class="form-control"
+                      id="description" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <a th:href="@{/events}" class="btn btn-link">Cancel</a>
+    </form>
+</section>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+</script></body>
+</html>

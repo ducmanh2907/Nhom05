@@ -74,5 +74,8 @@ public class TeamController {
         teamService.deleteTeamById(id);
         return "redirect:/teams";
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> b2be986 (jonggun)
 }
