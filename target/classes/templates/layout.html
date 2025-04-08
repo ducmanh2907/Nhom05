@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security5"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Layout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <style type="text/tailwindcss">
+        @layer base {
+            :root {
+                --background: 0 0% 100%;
+                --foreground: 240 10% 3.9%;
+                --card: 0 0% 100%;
+                --card-foreground: 240 10% 3.9%;
+                --popover: 0 0% 100%;
+                --popover-foreground: 240 10% 3.9%;
+                --primary: 240 5.9% 10%;
+                --primary-foreground: 0 0% 98%;
+                --secondary: 240 4.8% 95.9%;
+                --secondary-foreground: 240 5.9% 10%;
+                --muted: 240 4.8% 95.9%;
+                --muted-foreground: 240 3.8% 46.1%;
+                --accent: 240 4.8% 95.9%;
+                --accent-foreground: 240 5.9% 10%;
+                --destructive: 0 84.2% 60.2%;
+                --destructive-foreground: 0 0% 98%;
+                --border: 240 5.9% 90%;
+                --input: 240 5.9% 90%;
+                --ring: 240 5.9% 10%;
+                --radius: 0.5rem;
+            }
+            .dark {
+                --background: 240 10% 3.9%;
+                --foreground: 0 0% 98%;
+                --card: 240 10% 3.9%;
+                --card-foreground: 0 0% 98%;
+                --popover: 240 10% 3.9%;
+                --popover-foreground: 0 0% 98%;
+                --primary: 0 0% 98%;
+                --primary-foreground: 240 5.9% 10%;
+                --secondary: 240 3.7% 15.9%;
+                --secondary-foreground: 0 0% 98%;
+                --muted: 240 3.7% 15.9%;
+                --muted-foreground: 240 5% 64.9%;
+                --accent: 240 3.7% 15.9%;
+                --accent-foreground: 0 0% 98%;
+                --destructive: 0 62.8% 30.6%;
+                --destructive-foreground: 0 0% 98%;
+                --border: 240 3.7% 15.9%;
+                --input: 240 3.7% 15.9%;
+                --ring: 240 4.9% 83.9%;
+            }
+        }
+        body, html {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+        }
+        .full-height {
+            height: 100%;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav li {
+            text-align: center;
+        }
+        nav a {
+            display: block;
+            padding: 10px 0;
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body class="full-height bg-background bg-black">
+<div class="background-image"></div>
+
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    .background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100%;
+        background-image: url('https://viettelmoney.vn/wp-content/uploads/2023/01/GALAXY1.jpg'); /* Đổi link ảnh tại đây */
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+    }
+</style>
+<div class="flex flex-col h-screen">
+    <header class="flex justify-between items-center p-4 bg-gradient-to-b from-black-500 to-black text-blue shadow" style="margin-bottom: 0px">
+        <div class="flex items-center">
+
+            <h1 class="ml-2 text-xl font-bold" style="color: white; font-size: 40px; text-shadow: 5px 5px 2px blue, 3px 3px 25px white, 0 0 5px darkblue;">LasVegas Raiders Movie</h1><hr style="color:red;">
+        </div>
+        <div class="jong">
+            <li class="nav-item " sec:authorize="hasAnyAuthority('ADMIN')">
+                <a th:href="@{/products/add}" class="nav-link text-white" style="text-shadow: 5px 5px 2px blue, 3px 3px 25px red, 0 0 5px darkblue;">Movies</a>
+            </li>
+            <li class="nav-item " sec:authorize="hasAnyAuthority('ADMIN')">
+                <a th:href="@{/categories/add}" class="nav-link text-white" style="text-shadow: 5px 5px 2px blue, 3px 3px 25px red, 0 0 5px darkblue;">Category</a>
+            </li>
+            <li class="nav-item " sec:authorize="hasAnyAuthority('ADMIN')">
+                <a th:href="@{/events/add}" class="nav-link text-white" style="text-shadow: 5px 5px 2px blue, 3px 3px 25px red, 0 0 5px darkblue;">Movies Events</a>
+            </li>
+
+            <li class="nav-item " sec:authorize="hasAnyAuthority('ADMIN')">
+                <a th:href="@{/rankings/add}" class="nav-link text-white" style="text-shadow: 5px 5px 2px blue, 3px 3px 25px red, 0 0 5px darkblue;">MoviesRanking</a>
+            </li>
+            <hr style="color: blue; width: 5px">
+            <style>
+            .jong
+            {
+                list-style: none;
+                display: flex;
+                padding-left: 20px;
+
+            }
+            .nav-item a{
+                margin-left: 20px;
+            }
+            .nav-item li{
+                padding-right: 20px;
+            }
+
+        </style>
+        </div>
+
+        <div class="flex items-center">
+            <form th:action="@{/products}" method="get" class="d-flex mb-3">
+                <input type="text" name="search" th:value="${search}"
+                       class="form-control me-2" placeholder="Nhập tên movie...">
+                <button style="background: #2c2f36; color: white "  type="submit" class="btn  ">Tìm kiếm</button>
+            </form>
+
+<style>
+
+    /* Tùy chỉnh form tìm kiếm */
+    /* Tùy chỉnh toàn form */
+    .d-flex.mb-3 {
+        display: flex;
+        justify-content: center; /* Căn giữa form */
+        align-items: center;
+        gap: 10px; /* Khoảng cách giữa input và nút */
+    }
+
+    /* Tùy chỉnh input */
+    .d-flex.mb-3 .form-control {
+        background-color: #2c2f36; /* Nền tối */
+        color: #fff; /* Màu chữ */
+        border: none; /* Loại bỏ viền mặc định */
+        border-radius: 10px; /* Bo góc */
+        padding: 10px 15px; /* Khoảng cách bên trong */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+        font-size: 16px; /* Kích thước chữ */
+        outline: none; /* Loại bỏ hiệu ứng khi focus */
+    }
+
+    .d-flex.mb-3 .form-control::placeholder {
+        color: #aaa; /* Màu placeholder */
+        font-style: italic; /* Placeholder nghiêng */
+    }
+
+    /* Tùy chỉnh nút */
+    .d-flex.mb-3 .btn-primary {
+        border-radius: 10px; /* Bo góc nút */
+        padding: 10px 15px; /* Khoảng cách trong */
+        font-size: 16px; /* Kích thước chữ */
+        transition: background-color 0.3s ease; /* Hiệu ứng hover */
+    }
+
+    .d-flex.mb-3 .btn-primary:hover {
+        background-color: #0056b3; /* Màu khi hover */
+    }
+
+</style>
+
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                <li class="nav-item d-flex align-items-center" sec:authorize="isAuthenticated()">
+                    <span class="navbar-text text-white">Joyal, <span sec:authentication="name" style="margin-right: 20px;"></span></span>
+                </li>
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <form th:action="@{/logout}" method="post">
+                        <button class="btn btn-outline-light" type="submit">Logout</button>
+                    </form>
+                </li>
+                <li class="nav-item" sec:authorize="!isAuthenticated()">
+                    <a class="btn btn-outline-light" href="/login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="flex flex-1">
+        <aside class="bg-gradient-to-r from-black to-black-500 shadow-lg text-blue font-bold" style="width: 200px;">
+            <ul style="margin-left: 30px">
+                <li style="margin-bottom: 50px" class="py-2"><a  href="#" class="text-white gap-5 font-bold">LasVegas Movies</a></li>
+                <li class="py-2"><a class="text-white gap-5 font-bold" href="/products">QuảnLí Movie</a></li>
+                <li class="py-2"><a class="text-white gap-5 font-bold" href="/events">QuảnLí Event</a></li>
+                <li class="py-2"><a class="text-white gap-5 font-bold" href="/customers">QuảnLí User</a></li>
+                <li class="py-2"><a class="text-white gap-5 font-bold" href="#">QuảnLí Vé</a></li>
+                <li class="py-2"><a class="text-white gap-5 font-bold" href="#">QuảnLí Doanhthu</a></li>
+                <li class="py-2"><a class="text-white gap-5 font-bold" href="#">QuảnLí Phong</a></li>
+                <li class="py-2"><a class="text-white gap-5 font-bold" href="/checkins">QuảnLí Check in</a></li>
+                <li class="py-2"><a class="text-white gap-5 font-bold" href="/teams">QuảnLí Nhanvien</a></li>
+                <li class="py-2"><a class="text-white gap-5 font-bold" href="/teams/points">QuảnLí Xếphang</a></li>
+
+                <li class="py-2"><a class="text-white gap-5 font-bold" href="#"> Levels</a></li>
+            </ul>
+        </aside>
+
+        <div class="container mt-5">
+            <section layout:fragment="content"  class="h-screen overflow-hidden" style="padding-bottom: 60px">
+        <main class=" h-full flex-1 p-4 bg-cover bg-center" style="background-image: url(https://img.tapimg.net/market/images/FtoIj5l2bR_tdBi-aP9tLxPi0cqQ.png); opacity: 0.8;">
+            <div class="grid grid-cols-4 gap-4 mb-4 text-white" style="opacity: 0.8; background-color: rgba(0, 0, 0, 0.5);">
+                <div class="p-4 rounded-lg shadow">
+                    <h2>Total Visits</h2>
+                    <div class="text-green-500">+10%</div>
+                    <div class="h-2 bg-zinc-200 rounded"><div class="h-full bg-green-500" style="width: 70%;"></div></div>
+                </div>
+                <div class="p-4 rounded-lg shadow">
+                    <h2>Total Page Views</h2>
+                    <div class="text-red-500">-7%</div>
+                    <div class="h-2 bg-zinc-200 rounded"><div class="h-full bg-red-500" style="width: 30%;"></div></div>
+                </div>
+                <div class="p-4 rounded-lg shadow">
+                    <h2>Unique Visitor</h2>
+                    <div class="text-purple-500">~12%</div>
+                    <div class="h-2 bg-zinc-200 rounded"><div class="h-full bg-purple-500" style="width: 50%;"></div></div>
+                </div>
+                <div class="p-4 rounded-lg shadow">
+                    <h2>Bounce Rate</h2>
+                    <div class="text-blue-500">33%</div>
+                    <div class="h-2 bg-zinc-200 rounded"><div class="h-full bg-blue-500" style="width: 33%;"></div></div>
+                </div>
+            </div>
+            <div class="bg-zinc-200 rounded-lg shadow p-4 " style="opacity: 0.8; background-color: rgba(0, 0, 0, 0.5);">
+                <div class="flex">
+                    <div class="flex-1">
+                        <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2024/02/top-giai-dau-esports-4.webp" alt="Map" class="w-full h-auto" />
+                    </div>
+                    <div class="flex-1 ml-4">
+
+                        <div class="mb-4 gap-4 mb-4 text-white" >
+                            100k Visitors From USA
+                            <div class="bg-blue-500 h-2 rounded" style="width: 20%;"></div>
+                        </div>
+                        <div class="mb-4 gap-4 mb-4 text-white">
+                            1M Visitors From Europe
+                            <div class="bg-purple-500 h-2 rounded" style="width: 30%;"></div>
+                        </div>
+                        <div class="mb-4 gap-4 mb-4 text-white">
+                            450k Visitors From Australia
+                            <div class="bg-green-500 h-2 rounded" style="width: 40%;"></div>
+                        </div>
+                        <div class="mb-4 gap-4 mb-4 text-white">
+                            1B Visitors From India
+                            <div class="bg-red-500 h-2 rounded" style="width: 50%;"></div>
+                        </div>
+                        <div class="mb-4 gap-4 mb-4 text-white">
+                            The International 10
+                            <div class="bg-purple-500 h-2 rounded" style="width: 70%;"></div>
+                        </div>
+                        <div class="mb-4 gap-4 mb-4 text-white">
+                            The 2024 Fortnine World Cup Finals
+                            <div class="bg-gradient-to-r from-cyan-500 to-blue-500 h-2 rounded" style="width: 80%;"></div>
+                        </div>
+                        <div class="mb-4 gap-4 mb-4 text-white">
+                            Riyadh Masters From Europe oceania
+                            <div class="bg-purple-500bg-gradient-to-r from-sky-500 to-indigo-500 h-2 rounded" style="width: 90%;"></div>
+                        </div>
+                        <div class="mb-4 gap-4 mb-4 text-white">
+                            The 2024 Honor of Kings International Championship
+                            <div class="bg-gradient-to-r from-violet-500 to-fuchsia-500 h-2 rounded" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </main>
+
+            </section>
+    </div>
+
+    </div>
+</div>
+</body>
+
+</html>
+
