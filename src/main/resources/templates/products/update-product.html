@@ -24,11 +24,7 @@
             <div class="text-danger" th:if="${#fields.hasErrors('name')}"
                  th:errors="*{name}"></div>
         </div>
-        <div class="mb-3">
-            <label for="image">Image:</label>
-            <input type="file" id="images" name="image" accept="image/*" required>
-            <img th:src="@{/images/{logo}(logo=${product.logo})}" alt="Product Image" width="200px" height="200px">
-        </div>
+
         <div class="mb-3">
             <label for="price" class="form-label">Price:</label>
             <input type="text" th:field="*{price}" class="form-control" id="price"
