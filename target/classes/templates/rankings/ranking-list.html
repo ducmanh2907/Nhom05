@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security5"
+
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}">
 <head>
-    <title th:text="${title} ?: 'events List'"></title>
+    <title th:text="${title} ?: 'Products List'">Products List</title>
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-
 </head>
 <body>
 <section layout:fragment="content">
-    <h1>Events</h1>
+    <h1>Esports Joyal</h1>
     <style>
         h1{
             color: white;
@@ -29,28 +29,22 @@
             background-image: linear-gradient(black,white, white, white, black) ;
         }
     </style>
-    <table class="table table-bordered table-hover">
-        <thead class="table-dark">
-
-        </thead>
+    <table class="table table-bordered table-hover" >
         <tbody>
-        <tr th:each="event : ${events}">
-            <td th:text="${event.id}"></td>
-            <td>
-                <img th:src="@{/images/{kame}(kame=${event.kame})}" alt="Product Image" width="100px" height="100px" >
-            </td>
-            <td th:text="${event.eventName}"></td>
+        <tr th:each="ranking : ${rankings}" >
 
-            <td th:text="${event.core}"></td>
-            <td th:text="${event.description}"></td>
-            <td th:text="${event.location}"></td>
-            <td th:text="${event.eventDate}"></td>
+
+            <td th:text="${ranking.team.name}"></td>
+            <td th:text="${ranking.position}"></td>
+            <td th:text="${ranking.points}"></td>
+            <td th:text="${ranking.season}"></td>
+
             <td>
                 <!-- Hiển thị nút sửa và xóa chỉ dành cho người dùng ADMIN -->
                 <div sec:authorize="hasAuthority('ADMIN')">
-                    <a th:href="@{/events/edit/{id}(id=${event.id})}"
+                    <a th:href="@{/rankings/edit/{id}(id=${ranking.id})}"
                        class="btn btn-success btn-sm">Sửa</a>
-                    <a th:href="@{/events/delete/{id}(id=${event.id})}"
+                    <a th:href="@{/rankings/delete/{id}(id=${ranking.id})}"
                        class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc không?')">Xóa</a>
                 </div>
             </td>
@@ -60,8 +54,8 @@
                 <form th:action="@{/cart/add}" method="post"
                       sec:authorize="isAuthenticated()">
                     <input type="number" name="quantity" min="1" value="1"class="form-control d-inline-block" style="width: 70px;">
-                    <input type="hidden" th:value="${event.id}"
-                           name="productId"/>
+                    <input type="hidden" th:value="${ranking.id}"
+                           name="rankingId"/>
                     <button type="submit" class="btn btn-warning btn-sm">Thêm Vào Giỏ</button>
                 </form>
             </td>

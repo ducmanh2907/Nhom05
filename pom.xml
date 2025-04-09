@@ -87,10 +87,7 @@
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
+
 		<!-- Thymeleaf Extras Spring Security for integrating with Thymeleaf -->
 		<dependency>
 			<groupId>org.thymeleaf.extras</groupId>
@@ -104,6 +101,8 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+
+
 	</dependencies>
 
 	<build>
